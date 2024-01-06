@@ -9,23 +9,26 @@ import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
 import { Button } from "@mui/material";
 import { Formik, Form } from "formik";
-import { object, string, number, date, InferType } from "yup";
+import { object, string } from "yup";
+import useAuthCalls from "../service/useAuthCalls";
 
 const Login = () => {
+  const { login } = useAuthCalls();
+
   const loginSchema = object({
     email: string()
       .email("Lütfen geçerli bir email giriniz")
-      .required("Email girişi zorunludur."),
+      .required("Email girişi zorunludur"),
     password: string()
-      .min(6, "En az 6 karakter olmalıdır")
-      .max(20, "En fazla 20 karakter olmalıdır")
-      .required("Şifre girişi zorunludur.")
-      .matches(/\d+/, "Şifre en az bir rakam içermelidir.")
-      .matches(/[a-z]+/, "Şifre en az bir küçük harf içermelidir.")
-      .matches(/[A-Z]+/, "Şifre en az bir büyük harf içermelidir.")
+      .required("Şifre zorunludur.")
+      .min(8, "Şifre en az 8 karakter içermelidir")
+      .max(16, "Şifre en falza 16 karakter içermelidir")
+      .matches(/\d+/, "Şifre en az bir rakam içermelidir")
+      .matches(/[a-z]/, "Şifre en az bir küçük harf içermelidir")
+      .matches(/[A-Z]/, "Şifre en az bir büyük harf içermelidir")
       .matches(
         /[@$!%*?&]+/,
-        "Şifre en az bir özel karakter içermelidir.(@$!%*?&)"
+        "Şifre en az bir özel karakter (@$!%*?&) içermelidir"
       ),
   });
   return (
@@ -70,6 +73,7 @@ const Login = () => {
             validationSchema={loginSchema}
             onSubmit={(values, actions) => {
               //TODO login(post) istegi
+              login(values);
               actions.resetForm();
               actions.setSubmitting(false);
             }}
@@ -85,9 +89,9 @@ const Login = () => {
                     variant="outlined"
                     value={values.email}
                     onChange={handleChange}
+                    onBlur={handleBlur}
                     error={touched.email && Boolean(errors.email)}
                     helperText={errors.email}
-                    onBlur={handleBlur}
                   />
                   <TextField
                     label="password"
@@ -97,9 +101,9 @@ const Login = () => {
                     variant="outlined"
                     value={values.password}
                     onChange={handleChange}
+                    onBlur={handleBlur}
                     error={touched.password && Boolean(errors.password)}
                     helperText={errors.password}
-                    onBlur={handleBlur}
                   />
                   <Button variant="contained" type="submit">
                     Submit
