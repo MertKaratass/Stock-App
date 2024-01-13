@@ -1,7 +1,7 @@
-import * as React from "react"
-import Box from "@mui/material/Box"
-import { DataGrid } from "@mui/x-data-grid"
-import { useSelector } from "react-redux"
+import * as React from "react";
+import Box from "@mui/material/Box";
+import { DataGrid } from "@mui/x-data-grid";
+import { useSelector } from "react-redux";
 
 const columns = [
   {
@@ -12,30 +12,25 @@ const columns = [
     sortable: false,
   },
   {
-    field: "categoryId",
+    field: "category",
     headerName: "Category",
     flex: 1,
-    headerAlign: "center",
-    valueGetter: (params) => {
-      console.log(params)
-      return params.row.categoryId.name
-    },
   },
   {
-    field: "brandId",
+    field: "brand",
     headerName: "Brand",
     flex: 1.2,
     headerAlign: "center",
-    valueGetter: (params) => params.row.brandId.name,
   },
   {
     field: "name",
     headerName: "Name",
+    type: "text",
     flex: 1.5,
     headerAlign: "center",
   },
   {
-    field: "quantity",
+    field: "stock",
     headerName: "Stock",
     type: "number",
     flex: 1.5,
@@ -48,16 +43,14 @@ const columns = [
     sortable: false,
     flex: 1.5,
     headerAlign: "center",
-    valueGetter: (params) =>
-      `${params.row.firstName || ""} ${params.row.lastName || ""}`,
   },
-]
+];
 
 export default function ProductTable() {
-  const { products } = useSelector((state) => state.stock)
+  const { products } = useSelector((state) => state.stock);
 
   function getRowId(row) {
-    return row._id
+    return row._id;
   }
 
   return (
@@ -79,5 +72,5 @@ export default function ProductTable() {
         getRowId={getRowId}
       />
     </Box>
-  )
+  );
 }
