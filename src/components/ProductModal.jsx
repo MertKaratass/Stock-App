@@ -1,7 +1,8 @@
 import Box from "@mui/material/Box";
+import Button from "@mui/material/Button";
+import TextField from "@mui/material/TextField";
 import Modal from "@mui/material/Modal";
 import { modalStyle } from "../styles/globalStyles";
-import { Button, TextField } from "@mui/material";
 import useStockCalls from "../service/useStockCalls";
 
 export default function FirmModal({ open, handleClose, info, setInfo }) {
@@ -11,6 +12,7 @@ export default function FirmModal({ open, handleClose, info, setInfo }) {
     setInfo({ ...info, [e.target.name]: e.target.value });
   };
 
+  console.log(info);
   const handleSubmit = (e) => {
     e.preventDefault();
     if (info._id) {
@@ -18,10 +20,10 @@ export default function FirmModal({ open, handleClose, info, setInfo }) {
     } else {
       postStock("firms", info);
     }
-
     handleClose();
   };
 
+  console.log(info);
   return (
     <div>
       <Modal
