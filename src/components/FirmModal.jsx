@@ -1,21 +1,29 @@
-import { useState } from "react";
+// import { useState } from "react"
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
-import Typography from "@mui/material/Typography";
 import TextField from "@mui/material/TextField";
 import Modal from "@mui/material/Modal";
 import { modalStyle } from "../styles/globalStyles";
+import useStockCalls from "../service/useStockCalls";
 
 export default function FirmModal({ open, handleClose, info, setInfo }) {
+  const { postStock, putStock } = useStockCalls();
+
   const handleChange = (e) => {
     // const { name, value } = e.target
     // setInfo({ ...info, [name]: value })
     setInfo({ ...info, [e.target.name]: e.target.value });
   };
 
+  console.log(info);
   const handleSubmit = (e) => {
     e.preventDefault();
-    //? POST işlemi
+    if (info._id) {
+      putStock("firms", info);
+    } else {
+      postStock("firms", info);
+    }
+
     handleClose();
   };
 
@@ -75,7 +83,7 @@ export default function FirmModal({ open, handleClose, info, setInfo }) {
               required
             />
             <Button type="submit" variant="contained" size="large">
-              Submit
+              {info._id ? "Update Firm" : "Add Firm"}
             </Button>
           </Box>
         </Box>

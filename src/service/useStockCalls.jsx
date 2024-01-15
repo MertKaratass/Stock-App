@@ -1,35 +1,33 @@
-import { useDispatch } from "react-redux";
-import { fetchFail, fetchStart, getStockSuccess } from "../features/stockSlice";
-import { toastErrorNotify, toastSuccessNotify } from "../helper/ToastNotify";
+import { fetchStart, fetchFail, getStockSuccess } from "../features/stockSlice";
 import useAxios from "./useAxios";
+import { toastErrorNotify, toastSuccessNotify } from "../helper/ToastNotify";
+import { useDispatch } from "react-redux";
 
 const useStockCalls = () => {
   const { axiosWithToken } = useAxios();
   const dispatch = useDispatch();
 
   //   const getFirms = async () => {
-  //     dispatch(fetchStart());
+  //     dispatch(fetchStart())
   //     try {
-  //       const { data } = await axiosWithToken("/firms/");
-  //       dispatch(getFirmsSuccess(data));
+  //       const { data } = await axiosWithToken("/firms/")
+  //       dispatch(getFirmsSuccess(data.data))
   //     } catch (error) {
-  //       dispatch(fetchFail());
-  //       toastErrorNotify("Firma bilgileri çekilemedi.");
-  //       console.log(error);
+  //       dispatch(fetchFail())
+  //       toastErrorNotify("Firm bilgileri çekilemedi.")
   //     }
-  //   };
+  //   }
 
   //   const getSales = async () => {
-  //     dispatch(fetchStart());
+  //     dispatch(fetchStart())
   //     try {
-  //       const { data } = await axiosWithToken("/sales/");
-  //       dispatch(getSalesSuccess(data));
+  //       const { data } = await axiosWithToken("/sales/")
+  //       dispatch(getSalesSuccess(data.data))
   //     } catch (error) {
-  //       dispatch(fetchFail());
-  //       toastErrorNotify("Sales bilgileri çekilemedi.");
-  //       console.log(error);
+  //       dispatch(fetchFail())
+  //       toastErrorNotify("Sales bilgileri çekilemedi.")
   //     }
-  //   };
+  //   }
 
   const getStocks = async (url = "firms") => {
     dispatch(fetchStart());
@@ -40,19 +38,18 @@ const useStockCalls = () => {
     } catch (error) {
       dispatch(fetchFail());
       toastErrorNotify(`${url} bilgileri çekilemedi.`);
-      console.log(error);
     }
   };
 
   const deleteStock = async (url = "firms", id) => {
     dispatch(fetchStart());
     try {
-      await axiosWithToken.delete(`/${url}/${id}`);
-      toastSuccessNotify(`${url} bilgisi silindi.`);
+      await axiosWithToken.delete(`/${url}/${id}/`);
+      toastSuccessNotify(`${url} bilgisi silinmiştir.`);
       getStocks(url);
     } catch (error) {
       dispatch(fetchFail());
-      toastErrorNotify(`${url} silinemedi.`);
+      toastErrorNotify(`${url} silinemedi`);
     }
   };
 
@@ -60,11 +57,11 @@ const useStockCalls = () => {
     dispatch(fetchStart());
     try {
       await axiosWithToken.post(`/${url}/`, info);
-      toastSuccessNotify(`${url} kaydı eklenmiştir.`);
+      toastSuccessNotify(`${url} kayıdı eklenmiştir.`);
       getStocks(url);
     } catch (error) {
       dispatch(fetchFail());
-      toastErrorNotify(`${url} kaydı eklenememiştir.`);
+      toastErrorNotify(`${url} kaydi eklenemiştir.`);
     }
   };
 
@@ -72,73 +69,15 @@ const useStockCalls = () => {
     dispatch(fetchStart());
     try {
       await axiosWithToken.put(`/${url}/${info._id}`, info);
-      toastSuccessNotify(`${url} kaydı güncellenmiştir.`);
+      toastSuccessNotify(`${url} kayıdı güncellenmiştir..`);
       getStocks(url);
     } catch (error) {
       dispatch(fetchFail());
-      toastErrorNotify(`${url} kaydı güncellenememiştir.`);
+      toastErrorNotify(`${url} kaydi güncelenememiştir.`);
     }
   };
 
-  const getBrands = async (url = "brands") => {
-    dispatch(fetchStart());
-    try {
-      const { data } = await axiosWithToken(`/${url}/`);
-      const apiData = data.data;
-      dispatch(getStockSuccess({ apiData, url }));
-    } catch (error) {
-      dispatch(fetchFail());
-      toastErrorNotify(`${url} bilgileri çekilemedi.`);
-      console.log(error);
-    }
-  };
-
-  const postBrand = async (url = "brands", info) => {
-    dispatch(fetchStart());
-    try {
-      await axiosWithToken.post(`/${url}/`, info);
-      toastSuccessNotify(`${url} kaydı eklenmiştir.`);
-      getStocks(url);
-    } catch (error) {
-      dispatch(fetchFail());
-      toastErrorNotify(`${url} kaydı eklenememiştir.`);
-    }
-  };
-
-  const putBrand = async (url = "brands", info) => {
-    dispatch(fetchStart());
-    try {
-      await axiosWithToken.put(`/${url}/${info._id}`, info);
-      toastSuccessNotify(`${url} kaydı güncellenmiştir.`);
-      getStocks(url);
-    } catch (error) {
-      dispatch(fetchFail());
-      toastErrorNotify(`${url} kaydı güncellenememiştir.`);
-    }
-  };
-
-  const deleteBrand = async (url = "brands", id) => {
-    dispatch(fetchStart());
-    try {
-      await axiosWithToken.delete(`/${url}/${id}`);
-      toastSuccessNotify(`${url} bilgisi silindi.`);
-      getStocks(url);
-    } catch (error) {
-      dispatch(fetchFail());
-      toastErrorNotify(`${url} silinemedi.`);
-    }
-  };
-
-  return {
-    getStocks,
-    getBrands,
-    deleteStock,
-    postStock,
-    putStock,
-    postBrand,
-    putBrand,
-    deleteBrand,
-  };
+  return { getStocks, deleteStock, postStock, putStock };
 };
 
 export default useStockCalls;
