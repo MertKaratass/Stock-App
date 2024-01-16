@@ -8,7 +8,6 @@ import FirmCard from "../components/FirmCard";
 import FirmModal from "../components/FirmModal";
 
 const Firms = () => {
-  // const { getFirms, getSales } = useStockCalls()
   const { getStocks } = useStockCalls();
   const { firms } = useSelector((state) => state.stock);
 

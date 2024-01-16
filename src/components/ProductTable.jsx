@@ -27,7 +27,6 @@ export default function ProductTable() {
       headerAlign: "center",
       align: "center",
       valueGetter: (props) => {
-        // console.log(props)
         return props.row?.categoryId?.name;
       },
     },
@@ -69,7 +68,6 @@ export default function ProductTable() {
     },
   ];
 
-  // console.log(products)
   return (
     <Box sx={{ width: "100%" }}>
       <DataGrid
