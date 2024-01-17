@@ -1,3 +1,4 @@
+// import axios from "axios"
 import { toastErrorNotify, toastSuccessNotify } from "../helper/ToastNotify";
 import { useNavigate } from "react-router-dom";
 import {
@@ -8,13 +9,11 @@ import {
   registerSuccess,
 } from "../features/authSlice";
 import { useDispatch } from "react-redux";
-
 import useAxios from "./useAxios";
 
 const useAuthCalls = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
-
   const { axiosWithToken, axiosPublic } = useAxios();
 
   const login = async (userInfo) => {
