@@ -75,7 +75,7 @@ const Login = () => {
               //TODO login(post) istegi
               login(values);
               actions.resetForm();
-              actions.setSubmitting(false);
+              actions.setSubmitting(false); 
             }}
           >
             {({ handleChange, values, touched, errors, handleBlur }) => (
