@@ -27,6 +27,7 @@ export default function ProductTable() {
       headerAlign: "center",
       align: "center",
       valueGetter: (props) => {
+        // console.log(props)
         return props.row?.categoryId?.name;
       },
     },

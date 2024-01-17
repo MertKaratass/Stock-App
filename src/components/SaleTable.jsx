@@ -1,17 +1,17 @@
-import React from "react"
-import useStockCalls from "../service/useStockCalls"
-import { useSelector } from "react-redux"
-import { DataGrid, GridActionsCellItem, GridToolbar } from "@mui/x-data-grid"
-import DeleteIcon from "@mui/icons-material/Delete"
-import EditIcon from "@mui/icons-material/Edit"
-import { btnStyle } from "../styles/globalStyles"
-import Box from "@mui/material/Box"
+import React from "react";
+import useStockCalls from "../service/useStockCalls";
+import { useSelector } from "react-redux";
+import { DataGrid, GridActionsCellItem, GridToolbar } from "@mui/x-data-grid";
+import DeleteIcon from "@mui/icons-material/Delete";
+import EditIcon from "@mui/icons-material/Edit";
+import { btnStyle } from "../styles/globalStyles";
+import Box from "@mui/material/Box";
 
 const SaleTable = ({ handleOpen, setInfo }) => {
-  const { deleteStock } = useStockCalls()
-  const { sales } = useSelector((state) => state.stock)
+  const { deleteStock } = useStockCalls();
+  const { sales } = useSelector((state) => state.stock);
 
-  const getRowId = (row) => row._id
+  const getRowId = (row) => row._id;
 
   const columns = [
     {
@@ -75,8 +75,8 @@ const SaleTable = ({ handleOpen, setInfo }) => {
             icon={<EditIcon />}
             label="Edit"
             onClick={() => {
-              handleOpen()
-              setInfo({ brandId, price, quantity, productId, _id })
+              handleOpen();
+              setInfo({ brandId, price, quantity, productId, _id });
             }}
             sx={btnStyle}
           />,
@@ -87,10 +87,10 @@ const SaleTable = ({ handleOpen, setInfo }) => {
             onClick={() => deleteStock("sales", _id)}
             sx={btnStyle}
           />,
-        ]
+        ];
       },
     },
-  ]
+  ];
   return (
     <Box sx={{ width: "100%", mt: 4 }}>
       <DataGrid
@@ -103,7 +103,7 @@ const SaleTable = ({ handleOpen, setInfo }) => {
         getRowId={getRowId}
       />
     </Box>
-  )
-}
+  );
+};
 
-export default SaleTable
+export default SaleTable;

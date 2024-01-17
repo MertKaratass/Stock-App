@@ -57,13 +57,12 @@ const useStockCalls = () => {
       ]);
       dispatch(
         getProPurBranFirmSuccess([
-          products?.data,
-          purchases?.data,
-          brands?.data,
-          firms?.data,
+          products?.data?.data,
+          purchases?.data?.data,
+          brands?.data?.data,
+          firms?.data?.data,
         ])
       );
-      dispatch(fetchFail());
     } catch (error) {
       dispatch(fetchFail());
     }

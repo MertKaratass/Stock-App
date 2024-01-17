@@ -1,16 +1,16 @@
-import { useSelector } from "react-redux"
-import useStockCalls from "../service/useStockCalls"
-import DeleteIcon from "@mui/icons-material/Delete"
-import EditIcon from "@mui/icons-material/Edit"
-import { btnStyle } from "../styles/globalStyles"
-import { DataGrid, GridActionsCellItem, GridToolbar } from "@mui/x-data-grid"
-import Box from "@mui/material/Box"
+import { useSelector } from "react-redux";
+import useStockCalls from "../service/useStockCalls";
+import DeleteIcon from "@mui/icons-material/Delete";
+import EditIcon from "@mui/icons-material/Edit";
+import { btnStyle } from "../styles/globalStyles";
+import { DataGrid, GridActionsCellItem, GridToolbar } from "@mui/x-data-grid";
+import Box from "@mui/material/Box";
 
 const PurchaseTable = ({ setInfo, handleOpen }) => {
-  const { purchases } = useSelector((state) => state.stock)
-  const { deleteStock } = useStockCalls()
+  const { purchases } = useSelector((state) => state.stock);
+  const { deleteStock } = useStockCalls();
 
-  const getRowId = (row) => row._id
+  const getRowId = (row) => row._id;
 
   const columns = [
     {
@@ -20,7 +20,7 @@ const PurchaseTable = ({ setInfo, handleOpen }) => {
       headerAlign: "center",
       align: "center",
       renderCell: ({ row }) => {
-        return new Date(row.createdAt).toLocaleString("de-DE")
+        return new Date(row.createdAt).toLocaleString("de-DE");
       },
     },
     {
@@ -86,8 +86,8 @@ const PurchaseTable = ({ setInfo, handleOpen }) => {
             icon={<EditIcon />}
             label="Edit"
             onClick={() => {
-              handleOpen()
-              setInfo({ _id, brandId, productId, quantity, price, firmId })
+              handleOpen();
+              setInfo({ _id, brandId, productId, quantity, price, firmId });
             }}
             sx={btnStyle}
           />,
@@ -98,10 +98,10 @@ const PurchaseTable = ({ setInfo, handleOpen }) => {
             onClick={() => deleteStock("purchases", _id)}
             sx={btnStyle}
           />,
-        ]
+        ];
       },
     },
-  ]
+  ];
   return (
     <Box sx={{ width: "100%", mt: 4 }}>
       <DataGrid
@@ -114,7 +114,7 @@ const PurchaseTable = ({ setInfo, handleOpen }) => {
         getRowId={getRowId}
       />
     </Box>
-  )
-}
+  );
+};
 
-export default PurchaseTable
+export default PurchaseTable;

@@ -1,35 +1,35 @@
-import Box from "@mui/material/Box"
-import Modal from "@mui/material/Modal"
-import { modalStyle } from "../styles/globalStyles"
-import TextField from "@mui/material/TextField"
-import { Button } from "@mui/material"
+import Box from "@mui/material/Box";
+import Modal from "@mui/material/Modal";
+import { modalStyle } from "../styles/globalStyles";
+import TextField from "@mui/material/TextField";
+import { Button } from "@mui/material";
 
-import { MenuItem, Select, InputLabel, FormControl } from "@mui/material"
-import { useSelector } from "react-redux"
-import { useNavigate } from "react-router-dom"
-import useStockCalls from "../service/useStockCalls"
+import { MenuItem, Select, InputLabel, FormControl } from "@mui/material";
+import { useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
+import useStockCalls from "../service/useStockCalls";
 
 export default function SaleModal({ open, handleClose, info, setInfo }) {
-  const navigate = useNavigate()
-  const { postStock, putStock } = useStockCalls()
-  const { products, brands } = useSelector((state) => state.stock)
+  const navigate = useNavigate();
+  const { postStock, putStock } = useStockCalls();
+  const { products, brands } = useSelector((state) => state.stock);
 
   const handleChange = (e) => {
-    const { name, value } = e.target
-    setInfo({ ...info, [name]: value })
-  }
+    const { name, value } = e.target;
+    setInfo({ ...info, [name]: value });
+  };
 
   const handleSubmit = (e) => {
-    e.preventDefault()
+    e.preventDefault();
 
     if (info._id) {
-      putStock("sales", info)
+      putStock("sales", info);
     } else {
-      postStock("sales", info)
+      postStock("sales", info);
     }
 
-    handleClose()
-  }
+    handleClose();
+  };
 
   return (
     <div>
@@ -67,7 +67,7 @@ export default function SaleModal({ open, handleClose, info, setInfo }) {
                     <MenuItem key={item._id} value={item._id}>
                       {item.name}
                     </MenuItem>
-                  )
+                  );
                 })}
               </Select>
             </FormControl>
@@ -93,7 +93,7 @@ export default function SaleModal({ open, handleClose, info, setInfo }) {
                     <MenuItem key={item._id} value={item._id}>
                       {item.name}
                     </MenuItem>
-                  )
+                  );
                 })}
               </Select>
             </FormControl>
@@ -126,5 +126,5 @@ export default function SaleModal({ open, handleClose, info, setInfo }) {
         </Box>
       </Modal>
     </div>
-  )
+  );
 }
