@@ -33,11 +33,11 @@
 <img width="100%" alt="5" src="https://github.com/MertKaratass/Stock-App/assets/140601271/0c6b5e16-22e7-4369-b599-ebdc5aa4337b">
 <img width="100%" alt="6" src="https://github.com/MertKaratass/Stock-App/assets/140601271/c6242093-2e8e-4a1b-9784-eb8e0b1782d5">
 <div display ="flex">
-<img width="100%" alt="7" src="https://github.com/MertKaratass/Stock-App/assets/140601271/4d447393-3bab-43b9-9333-efa142b382a2">
-<img width="100%" alt="7" src="https://github.com/MertKaratass/Stock-App/assets/140601271/c3d99f51-0ab3-44f1-9654-87d9ac458aa7">
-<img width="100%" alt="7" src="https://github.com/MertKaratass/Stock-App/assets/140601271/c54588ce-079f-44b5-a7e7-6ccb200c95a3">
-<img width="100%" alt="7" src="https://github.com/MertKaratass/Stock-App/assets/140601271/a93217d3-3867-4cb3-83da-432e1973dab0">
-<img width="100%" alt="7" src="https://github.com/MertKaratass/Stock-App/assets/140601271/5add097c-83b2-4540-87fc-9ea0437fb8bb">
+<img width="500" alt="7" src="https://github.com/MertKaratass/Stock-App/assets/140601271/4d447393-3bab-43b9-9333-efa142b382a2">
+<img width="500" alt="7" src="https://github.com/MertKaratass/Stock-App/assets/140601271/c3d99f51-0ab3-44f1-9654-87d9ac458aa7">
+<img width="500" alt="7" src="https://github.com/MertKaratass/Stock-App/assets/140601271/c54588ce-079f-44b5-a7e7-6ccb200c95a3">
+<img width="500" alt="7" src="https://github.com/MertKaratass/Stock-App/assets/140601271/a93217d3-3867-4cb3-83da-432e1973dab0">
+<img width="500" alt="7" src="https://github.com/MertKaratass/Stock-App/assets/140601271/5add097c-83b2-4540-87fc-9ea0437fb8bb">
 </div>
 
 
