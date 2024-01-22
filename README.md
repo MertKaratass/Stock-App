@@ -25,8 +25,9 @@
 - `@emotion/styled`
 
 
-<img width="959" alt="3" src="https://github.com/MertKaratass/Stock-App/assets/140601271/777f10f4-c0cc-4e09-994d-33f78e93a623">
 
+<img width="959" alt="3" src="https://github.com/MertKaratass/Stock-App/assets/140601271/777f10f4-c0cc-4e09-994d-33f78e93a623">
+<img width="959" alt="3" src="https://github.com/MertKaratass/Stock-App/assets/140601271/1fc3df10-ffb4-4486-a2f8-08d682d099c0">
 <img width="959" alt="3" src="https://github.com/MertKaratass/Stock-App/assets/140601271/aec18947-9ada-4e05-a11c-66a4ffcaaddd">
 <img width="957" alt="4" src="https://github.com/MertKaratass/Stock-App/assets/140601271/79cdb0bb-9435-4cc6-b59d-f77fe6259acf">
 <img width="958" alt="5" src="https://github.com/MertKaratass/Stock-App/assets/140601271/0c6b5e16-22e7-4369-b599-ebdc5aa4337b">
