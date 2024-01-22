@@ -9,6 +9,7 @@ import { Link } from "react-router-dom";
 import RegisterForm, { registerSchema } from "../components/RegisterForm";
 import { Formik } from "formik";
 import useAuthCalls from "../service/useAuthCalls";
+import image1 from "../assets/logo.jpg.webp";
 
 const Register = () => {
   const { register } = useAuthCalls();
@@ -26,7 +27,7 @@ const Register = () => {
         }}
       >
         <Grid item xs={12}>
-          <Typography variant="h3" color="primary" align="center">
+          <Typography variant="h3" color="#00102A" align="center">
             STOCK APP
           </Typography>
         </Grid>
@@ -34,7 +35,7 @@ const Register = () => {
         <Grid item xs={12} sm={10} md={6}>
           <Avatar
             sx={{
-              backgroundColor: "secondary.light",
+              backgroundColor: "#00102A",
               m: "auto",
               width: 40,
               height: 40,
@@ -42,12 +43,7 @@ const Register = () => {
           >
             <LockIcon size="30" />
           </Avatar>
-          <Typography
-            variant="h4"
-            align="center"
-            mb={2}
-            color="secondary.light"
-          >
+          <Typography variant="h4" align="center" mb={2} color="#00102A">
             Register
           </Typography>
 
@@ -73,9 +69,9 @@ const Register = () => {
           </Box>
         </Grid>
 
-        <Grid item xs={0} sm={7} md={6}>
+        <Grid item xs={10} sm={7} md={6}>
           <Container>
-            <img src={image} alt="" />
+            <img src={image1} alt="img" style={{ borderRadius: "100%" }} />
           </Container>
         </Grid>
       </Grid>

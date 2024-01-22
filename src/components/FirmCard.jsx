@@ -22,6 +22,10 @@ export default function FirmCard({ firm, handleOpen, setInfo }) {
         width: "300px",
         height: "400px",
         p: 2,
+        boxShadow: "0 0 10px rgba(0,0,0,0.5)",
+        borderRadius: "50px",
+        ":hover": { scale: "1.05" },
+        transition: "all 0.3s ease-in-out",
       }}
     >
       <CardContent>

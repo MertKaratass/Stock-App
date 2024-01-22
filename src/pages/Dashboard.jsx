@@ -13,7 +13,7 @@ import { useSelector } from "react-redux";
 import useAuthCalls from "../service/useAuthCalls";
 import MenuListItems from "../components/MenuListItems";
 import { Outlet } from "react-router-dom";
-
+import image from "../assets/logo.jpg.webp";
 const drawerWidth = 200;
 
 function Dashboard(props) {
@@ -58,7 +58,24 @@ function Dashboard(props) {
           >
             <MenuIcon />
           </IconButton>
-          <Typography variant="h6" noWrap component="div" sx={{ flexGrow: 1 }}>
+          <Typography
+            variant="h6"
+            noWrap
+            component="div"
+            sx={{
+              flexGrow: 1,
+              display: "flex",
+              justifyContent: "flex-start",
+              alignItems: "center",
+              gap: "10px",
+            }}
+          >
+            <img
+              src={image}
+              alt=""
+              width={"50px"}
+              style={{ borderRadius: "50px" }}
+            />
             Stock App
           </Typography>
 

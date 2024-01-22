@@ -11,6 +11,7 @@ import { Button } from "@mui/material";
 import { Formik, Form } from "formik";
 import { object, string } from "yup";
 import useAuthCalls from "../service/useAuthCalls";
+import image1 from "../assets/logo.jpg.webp";
 
 const Login = () => {
   const { login } = useAuthCalls();
@@ -43,7 +44,7 @@ const Login = () => {
         }}
       >
         <Grid item xs={12} mb={3}>
-          <Typography variant="h3" color="primary" align="center">
+          <Typography variant="h3" color="#00102A" align="center">
             STOCK APP
           </Typography>
         </Grid>
@@ -51,7 +52,7 @@ const Login = () => {
         <Grid item xs={12} sm={10} md={6}>
           <Avatar
             sx={{
-              backgroundColor: "secondary.light",
+              backgroundColor: "#00102A",
               m: "auto",
               width: 40,
               height: 40,
@@ -63,7 +64,7 @@ const Login = () => {
             variant="h4"
             align="center"
             mb={4}
-            color="secondary.light"
+            color="#00102A"
           >
             Login
           </Typography>
@@ -75,7 +76,7 @@ const Login = () => {
               //TODO login(post) istegi
               login(values);
               actions.resetForm();
-              actions.setSubmitting(false); 
+              actions.setSubmitting(false);
             }}
           >
             {({ handleChange, values, touched, errors, handleBlur }) => (
@@ -105,7 +106,7 @@ const Login = () => {
                     error={touched.password && Boolean(errors.password)}
                     helperText={errors.password}
                   />
-                  <Button variant="contained" type="submit">
+                  <Button variant="contained" type="submit" style={{backgroundColor:"#00102A"}}>
                     Submit
                   </Button>
                 </Box>
@@ -120,7 +121,7 @@ const Login = () => {
 
         <Grid item xs={10} sm={7} md={6}>
           <Container>
-            <img src={image} alt="img" />
+            <img src={image1} alt="img" style={{ borderRadius: "100%" }} />
           </Container>
         </Grid>
       </Grid>
